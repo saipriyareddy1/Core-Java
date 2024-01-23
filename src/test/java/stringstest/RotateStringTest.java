@@ -1,15 +1,18 @@
 package stringstest;
 
-import junit.framework.TestCase;
 import junit.framework.Assert;
+import junit.framework.TestCase;
 import strings.CheckRotation;
 
 public class RotateStringTest extends TestCase {
-    public void rotationTest(){
-
-        //Assert.assertFalse(CheckRotation.isRotation(null, null));
-        String str1 = "JavaJ2eeStrutsHibernate";
-        String str2 = "StrutsHibernateJavaJ2ee";
-        Assert.assertTrue(CheckRotation.isRotation(str1, str2));
+    public void testRotate(){
+        boolean equal = CheckRotation.isRotation("JavaJ2eeStrutsHibernate", "StrutsHibernateJavaJ2ee");
+        Assert.assertTrue(equal);
+        boolean nullresult = CheckRotation.isRotation("","");
+        Assert.assertFalse(nullresult);
+        boolean falseresult = CheckRotation.isRotation("java","vaj");
+        Assert.assertFalse(falseresult);
+        boolean falseresult2 = CheckRotation.isRotation("","java");
+        Assert.assertFalse(falseresult2);
     }
 }
